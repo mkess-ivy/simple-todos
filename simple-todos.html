@@ -7,9 +7,18 @@
   <div class="container">
     <header>
       <h1>Todo List</h1>
-      <form class="new-task">
+
+      {{> loginButtons}}
+
+      {{#if currentUser}}
+        <form class="new-task">
+         <input type="text" name="text" placeholder="Type to add new tasks" />
+        </form>
+      {{/if}}
+      
+      <!-- <form class="new-task">
         <input type="text" name="text" placeholder="Type to add new tasks" />
-      </form>
+      </form> -->
     </header>
 
     <ul>
@@ -26,6 +35,7 @@
 
     <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
 
-    <span class="text">{{text}}</span>
+    <span class="text"><strong>{{username}}</strong> - {{text}}</span>
   </li>
 </template>
+
